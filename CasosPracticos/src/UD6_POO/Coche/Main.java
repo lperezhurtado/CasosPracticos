@@ -1,18 +1,20 @@
 
 package UD6_POO.Coche;
 
+import UD6_POO.Coche.Coche.seguro;
+import UD6_POO.Coche.Coche.tipo;
+
 public class Main {
     
     public static void main(String[] args) {
+        //objetos
+        Coche c1 = new Coche("Audi","rojo","Si","1234flg",tipo.MINI,seguro.TERCEROS,2000);
+        Coche c2 = new Coche("Porche","Gris","no","12345dfg",tipo.DEPORTIVO,seguro.TODO_RIESGO,2010);
+        Coche c3 = new Coche("Citroen","Azul","no","12345asd",tipo.UTILITARIO,seguro.TERCEROS,2007);
         
-        Coche c1 = new Coche();
-        Coche c2 = new Coche();
-        Coche c3 = new Coche();
-        
-        c1.setModelo("Audi");
-        c1.setColor("Rojo");
-        c1.setPintura(true);
-        c1.setMatricula("1234abc");
-        
+        //mostrar datos de objetos
+        c1.imprimir();
+        c2.imprimir();
+        c3.imprimir();   
     }
 }

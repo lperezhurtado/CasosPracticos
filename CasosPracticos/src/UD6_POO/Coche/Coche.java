@@ -1,29 +1,31 @@
-
 package UD6_POO.Coche;
 
 public class Coche {
     
     private String modelo;
     private String color;
-    private boolean pinturametal;
+    private String pinturametal;
     private String matricula;
-    private enum tipo{MINI, UTILITARIO, FAMILIAR, DEPORTIVO;}
+    private final tipo tipo;
+    private final seguro seguro;
     private int año;
-    private enum seguro{TERCEROS, TODO_RIESGO}
+    
+    //enum
+    public enum tipo{MINI, UTILITARIO, FAMILIAR, DEPORTIVO;}
+    public enum seguro{TERCEROS, TODO_RIESGO}
+    
     //constructor
-    public Coche(){
-        modelo = null;
-        color = null;
-        pinturametal = false;
-        matricula = null;
-        año = 0;      
-    }
-    
-    public void setTipo(enum t){
+    public Coche(String modelo, String color,String pinturametal,
+                 String matricula,tipo tipo,seguro seguro,int año){
+        this.modelo = modelo;
+        this.color = color;
+        this.pinturametal = pinturametal;
+        this.matricula = matricula;
+        this.tipo = tipo;
+        this.seguro = seguro;
+        this.año = año; 
         
-        
     }
-    
     
     //set y get de modelo
     public void setModelo(String mod){
@@ -42,10 +44,10 @@ public class Coche {
     }
     
     //set y get de pintura
-    public void setPintura(boolean pint){
+    public void setPintura(String pint){
         pinturametal = pint;
     }
-    public boolean getPintura(){
+    public String getPintura(){
         return pinturametal;
     }
     
@@ -63,5 +65,15 @@ public class Coche {
     }
     public int getAño(){
         return año;
+    }
+    
+    public void imprimir(){
+        System.out.println(modelo+"\n"+
+                           color+"\n"+
+                           "Pintura metalizada: "+pinturametal+"\n"+
+                           "Matricula "+matricula+"\n"+
+                           "Tipo: "+tipo+"\n"+
+                           "Seguro: "+seguro+"\n"+
+                           "Año: "+año+"\n");
     }
 }
