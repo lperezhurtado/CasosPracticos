@@ -4,7 +4,7 @@ public class Coche {
     
     private String modelo;
     private String color;
-    private String pinturametal;
+    private boolean pinturametal;
     private String matricula;
     private final tipo tipo;
     private final seguro seguro;
@@ -15,7 +15,7 @@ public class Coche {
     public enum seguro{TERCEROS, TODO_RIESGO}
     
     //constructor
-    public Coche(String modelo, String color,String pinturametal,
+    public Coche(String modelo, String color,boolean pinturametal,
                  String matricula,tipo tipo,seguro seguro,int año){
         this.modelo = modelo;
         this.color = color;
@@ -44,10 +44,10 @@ public class Coche {
     }
     
     //set y get de pintura
-    public void setPintura(String pint){
+    public void setPintura(boolean pint){
         pinturametal = pint;
     }
-    public String getPintura(){
+    public boolean getPintura(){
         return pinturametal;
     }
     
@@ -75,5 +75,5 @@ public class Coche {
                            "Tipo: "+tipo+"\n"+
                            "Seguro: "+seguro+"\n"+
                            "Año: "+año+"\n");
-    }
+    } 
 }
