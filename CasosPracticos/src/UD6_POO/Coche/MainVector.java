@@ -67,15 +67,29 @@ public class MainVector {
             System.out.println("Año?");
             int año = lector.nextInt();
             
-           coches[i]= new Coche(mat, c, p, mat, t, s, año);
+            coches[i] = new Coche(m, c, p, mat, t, s, año);
            
            lector.nextLine();
         }
         
+        int contP = 0;
+        int contA = 0;
         for (int i = 0; i < coches.length; i++) {
-            coches[i].imprimir();
+            coches[i].imprimir();  
+            
+            if(coches[i].getPintura()==true){
+                contP++;
+            }
+            if(coches[i].getAño()<2000){
+                contA++;
+            }
+            
         }
+        System.out.println(contP+" coches "
+                + "tienen pintura metalizada");
         
+        System.out.println(contA+" coches son"
+                    + " anteriores al 2000");
     }
 
 }

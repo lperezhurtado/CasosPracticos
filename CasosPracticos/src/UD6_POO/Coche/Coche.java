@@ -68,8 +68,8 @@ public class Coche {
     }
     
     public void imprimir(){
-        System.out.println(modelo+"\n"+
-                           color+"\n"+
+        System.out.println("Modelo: "+modelo+"\n"+
+                           "Color: "+color+"\n"+
                            "Pintura metalizada: "+pinturametal+"\n"+
                            "Matricula "+matricula+"\n"+
                            "Tipo: "+tipo+"\n"+
