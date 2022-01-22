@@ -17,6 +17,9 @@ public class Cuenta {
             this.saldo = saldo;}
     
     }
+    public Cuenta(){
+        
+    }
     
     //set y get de numero de cuenta
     public void setNumero(int numero){
@@ -71,6 +74,15 @@ public class Cuenta {
     
     public void imprimir(){
         System.out.println("Saldo actual de la cuenta "+numero+": "+saldo +"\n");
-    }  
+    }
+    
+    public void menu(){
+        System.out.println("  MENU  \n"+
+                "1. Ver cuentas \n"
+                + "2. Ingresar \n"
+                + "3. Retirar \n"
+                + "4. Transferencia \n"
+                + "5. Salir \n");
+    }
     
 }

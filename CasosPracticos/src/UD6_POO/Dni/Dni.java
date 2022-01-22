@@ -5,6 +5,13 @@ public class Dni {
     
     private int dni;
     
+    
+    public Dni newRandomDNI(){
+        dni = (int)(11111111 + Math.random() * (99999999 - 11111111 + 1));
+        Dni Dni = new Dni();
+        return Dni;
+        
+    }
     public void setDni(int dni){
         this.dni = dni;
     }

@@ -109,8 +109,24 @@ public class Reloj {
         }
         if (hora == 24) {
             hora = 0;
-        }
-        
+        }  
+    }
+    
+    public void tick(int s){
+        for (int i = 0; i < s; i++) {
+            segundo++;
+           if (segundo == 60) {
+                segundo = 0;
+                minuto++;
+            }
+            if (minuto == 60) {
+                minuto = 0;
+                hora++;
+            }
+            if (hora == 24) {
+                hora = 0;
+            } 
+        }  
     }
     
     //metodos imprime

@@ -26,7 +26,9 @@ public class Coche {
         this.año = año; 
         
     }
-    
+    public seguro getSeguro(){
+        return seguro;
+    }
     //set y get de modelo
     public void setModelo(String mod){
         modelo = mod;

@@ -16,7 +16,7 @@ public class MainVector {
         coches[1]=new Coche("Peugeot","gris",false,"9876asd",tipo.UTILITARIO,Coche.seguro.TODO_RIESGO, 2005);
         coches[2]=new Coche("ford", "negro", false, "5678fgl",tipo.FAMILIAR, Coche.seguro.TERCEROS, 2007);*/
         
-        
+        seguro s = null;
         for (int i = 0; i < coches.length; i++) {
             lector.nextLine();
             System.out.println("Modelo?");
@@ -55,7 +55,7 @@ public class MainVector {
             int tiempo;
             tiempo = lector.nextInt();
             
-            seguro s = null;
+            
             switch (tiempo) {
                 case 1:
                     s = seguro.TERCEROS;
@@ -74,6 +74,7 @@ public class MainVector {
         
         int contP = 0;
         int contA = 0;
+        int contT = 0, contATR =0;
         for (int i = 0; i < coches.length; i++) {
             coches[i].imprimir();  
             
@@ -83,6 +84,12 @@ public class MainVector {
             if(coches[i].getAño()<2000){
                 contA++;
             }
+            if(coches[i].getSeguro()==seguro.TERCEROS){
+                contT++;
+            }
+            if(coches[i].getSeguro()==seguro.TODO_RIESGO){
+                contATR++;
+            }
             
         }
         System.out.println(contP+" coches "
@@ -90,6 +97,10 @@ public class MainVector {
         
         System.out.println(contA+" coches son"
                     + " anteriores al 2000");
+        System.out.println(contT+" coches tienen"
+                + " seguro a TERCEROS");
+        System.out.println(contATR+" coches tienen"
+                + " seguro A TODO RIESGO");
     }
-
+    
 }
