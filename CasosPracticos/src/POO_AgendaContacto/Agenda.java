@@ -5,8 +5,13 @@ import java.util.Scanner;
 
 public class Agenda {
     
-    private Contacto[] agenda = new Contacto[100];
+    private Contacto[] contactos;
     private int cuantos = 0;
+    
+    public Agenda(){
+        contactos = new Contacto[100];
+    }
+    
     
     //menu
     public static void menu(){
@@ -21,9 +26,7 @@ public class Agenda {
     //Agregar contacto
     public void agregarContacto(String n, String t, String c){
         if(cuantos < 100){
-            agenda[cuantos].setNombre(n);
-            agenda[cuantos].setTelefono(t);
-            agenda[cuantos].setCorreo(c);
+            contactos[cuantos] = new Contacto(n, t, c);
             
             cuantos++;
         }
@@ -34,26 +37,26 @@ public class Agenda {
     
     //Borrar contacto
     public void borrarContacto(int pos){
-        for (int i = pos; i < (agenda.length-1); i++) {
-            agenda[i] = agenda[i+1];
+        for (int i = pos; i < (contactos.length-1); i++) {
+            contactos[i] = contactos[i+1];
         }
         cuantos--;
     }
     
     public void buscarContacto(String nombre){
         int pos = 0;
-        for (int i = 0; i < agenda.length; i++) { 
-            if(agenda[i].getNombre().toUpperCase() == nombre.toUpperCase()){
-                pos = i;
+        for (int i = 0; i < contactos.length; i++) { 
+            if(contactos[i].getNombre().toUpperCase() == nombre.toUpperCase()){
+            contactos[pos].imprime();
             }
         }
-         agenda[pos].imprime();
+         
     }
     
     //Imprimir todos los contactos
     public void imprimirTodos(){
-        for (int i = 0; i < agenda.length; i++) {
-            agenda[i].imprime();   
+        for (int i = 0; i < contactos.length; i++) {
+            contactos[i].imprime();   
         }
     }
     
