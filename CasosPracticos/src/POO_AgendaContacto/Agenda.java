@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Agenda {
     
-    private Contacto[] contactos;
+    private final Contacto[] contactos;
     private int cuantos = 0;
     
     public Agenda(){
@@ -44,10 +44,10 @@ public class Agenda {
     }
     
     public void buscarContacto(String nombre){
-        int pos = 0;
+        
         for (int i = 0; i < contactos.length; i++) { 
-            if(contactos[i].getNombre().toUpperCase() == nombre.toUpperCase()){
-            contactos[pos].imprime();
+            if(contactos[i].getNombre().toUpperCase().equals(nombre.toUpperCase())){
+            contactos[i].imprime(); 
             }
         }
          
@@ -58,6 +58,7 @@ public class Agenda {
         for (int i = 0; i < contactos.length; i++) {
             contactos[i].imprime();   
         }
+        
     }
     
     public String pedirDatos(){
