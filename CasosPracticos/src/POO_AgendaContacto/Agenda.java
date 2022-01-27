@@ -45,7 +45,7 @@ public class Agenda {
     
     public void buscarContacto(String nombre){
         
-        for (int i = 0; i < contactos.length; i++) { 
+        for (int i = 0; i < cuantos; i++) { 
             if(contactos[i].getNombre().toUpperCase().equals(nombre.toUpperCase())){
             contactos[i].imprime(); 
             }
@@ -55,7 +55,7 @@ public class Agenda {
     
     //Imprimir todos los contactos
     public void imprimirTodos(){
-        for (int i = 0; i < contactos.length; i++) {
+        for (int i = 0; i < cuantos; i++) {
             contactos[i].imprime();   
         }
         
