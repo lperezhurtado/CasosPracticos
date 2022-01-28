@@ -5,7 +5,7 @@ public class Cuenta {
 
         private String titular;
         private double saldo;
-        
+        private final double minimo = -100;
         
         public Cuenta(String nombre, double saldo){
             setTitular(nombre);
@@ -27,7 +27,14 @@ public class Cuenta {
         }
         
         public void retirar(double saldo){
-            this.saldo =- saldo;
+            
+            if(this.saldo == minimo || this.saldo - saldo < minimo){
+                System.out.println("Error: no se puede retirar dicha cantidad");
+            }
+            else{
+                this.saldo =- saldo;
+            }
+            
         }
         
         public void imprimir(){
