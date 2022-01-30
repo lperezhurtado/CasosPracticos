@@ -64,11 +64,15 @@ public class Banco {
     public void retirar(int pos, double saldo){
         cuentas[pos].retirar(saldo);
     }
-    
+    // metodo para transferencia
     public void transferencia(int posI, int posD, double saldo){
-        
-        cuentas[posI].retirar(saldo);
-        cuentas[posD].ingresar(saldo);
+        if(saldo < 0){
+            System.out.println("Erro: no se pueden ingresar cantidades negativas");;
+        }
+        else{
+            cuentas[posI].retirar(saldo);
+            cuentas[posD].ingresar(saldo);
+        }
     }
     
     public void morosos(){
