@@ -23,16 +23,16 @@ public class Cuenta {
         }
         
         public void ingresar(double saldo){
-            this.saldo =+ saldo;
+            this.saldo = this.saldo + saldo;
         }
         
         public void retirar(double saldo){
             
-            if(this.saldo == minimo || this.saldo - saldo < minimo){
+            if(this.saldo == minimo || (this.saldo - saldo) < minimo){
                 System.out.println("Error: no se puede retirar dicha cantidad");
             }
             else{
-                this.saldo =- saldo;
+                this.saldo = this.saldo - saldo;
             }
             
         }

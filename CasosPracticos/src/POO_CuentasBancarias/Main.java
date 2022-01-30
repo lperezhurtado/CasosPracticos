@@ -64,7 +64,7 @@ public class Main {
                     
                     break;
                 case 5:
-                    
+                    lector.nextLine();
                     System.out.println("Nombre?");
                     n = lector.nextLine();
                     System.out.println("Saldo?");
@@ -82,7 +82,7 @@ public class Main {
                     
                     break;
                 case 7:
-                    
+                    lector.nextLine();
                     System.out.println("Nombre a buscar?");
                     n = lector.nextLine();
                     
