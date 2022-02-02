@@ -1,3 +1,5 @@
+package UD6_POO.Soluciones;
+
 public class Asignatura {
 
     // ATRIBUTOS
