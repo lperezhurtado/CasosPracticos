@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Diagrama_cine">
+  <ClassDiagramComponents>
+    <Class name="Proyeccion" package="" visibility="public" xPosition="312.0" yPosition="82.0">
+      <Fields>
+        <Field name="titulo" type="String" visibility="private"/>
+        <Field name="dia" type="String" visibility="private"/>
+        <Field name="hora" type="String" visibility="private"/>
+        <Field name="maxButacas" type="int" visibility="private"/>
+        <Field name="butacasVendidas" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="venderEntrada" returnType="void" visibility="public"/>
+        <Method name="cancelarEntrada" returnType="void" visibility="public"/>
+        <Method name="verSala" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Cine" package="" visibility="public" xPosition="772.0" yPosition="108.0">
+      <Fields>
+        <Field name="proyecciones" type="Proyeccion[]" visibility="private"/>
+        <Field name="cuantos" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="anyadirProyeccion" returnType="void" visibility="public"/>
+        <Method name="quitarProyeccion" returnType="void" visibility="public"/>
+        <Method name="verProyecciones" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Main" package="" visibility="public" xPosition="792.0" yPosition="478.0">
+      <Fields>
+        <Field name="cine" type="Cine" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tiene" source="Main" target="Cine" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="Cine" target="Proyeccion" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
