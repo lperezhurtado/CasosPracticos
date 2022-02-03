@@ -14,8 +14,12 @@ public class Main {
         
         p1.verSala();
         
-        p1.venderEntrada(2, 3, 5);
+        p1.venderEntrada(3, 5);
+         p1.venderEntrada(3, 5);
         
-        p1.venderEntrada(2, 6, 10);
+        p1.venderEntrada(6, 10);
+        p1.venderEntrada(4, 4);
+        p1.venderEntrada(7, 3);
+        p1.venderEntrada(6,1);
     }
 }
