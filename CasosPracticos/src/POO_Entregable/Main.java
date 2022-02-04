@@ -18,8 +18,8 @@ public class Main {
          p1.venderEntrada(3, 5);
         
         p1.venderEntrada(6, 10);
-        p1.venderEntrada(4, 4);
-        p1.venderEntrada(7, 3);
+        p1.venderEntrada(6, 9);
+        p1.venderEntrada(6, 2);
         p1.venderEntrada(6,1);
     }
 }

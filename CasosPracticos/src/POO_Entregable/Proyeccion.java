@@ -8,7 +8,9 @@ public class Proyeccion {
     private int maxButacas = y * y;
     private int butacasVendidas = 0;
     private double precio;
-
+    private char libre = 'O';
+    private char ocupado = 'X';
+    
     private final static int x = 10, y = 10;
 
     private char[][] butacas;
@@ -64,8 +66,8 @@ public class Proyeccion {
         System.out.println("Disposicion de la sala \n");
         verSala();
         if (fila <= x && col <= y) { //comprueba coord. dentro de rango
-            if (butacas[fila - 1][col - 1] != 'X') { //comprueba que las butacas no esten ya escogidas
-                butacas[fila - 1][(col - 1)] = 'X';
+            if (butacas[fila - 1][col - 1] != ocupado) { //comprueba que las butacas no esten ya escogidas
+                butacas[fila - 1][(col - 1)] = ocupado;
                 System.out.println("Butaca(s) reservada(s) \n");
                 butacasVendidas++;
             } else {
@@ -80,15 +82,19 @@ public class Proyeccion {
 
     //METODO PARA CANCELAR ENTRADAS
     public void cancelarEntrada(int fila, int col) {
-
-        if (butacas[fila][col] == 'X') {
-            butacas[fila][col] = 'O';
-            System.out.println("Butaca cancelada. \n");
-            butacasVendidas--;
-        } else {
-            System.out.println("No hay butacas reservadas en esa posicion.");
+        
+        if (fila <= x && col <= y){
+            if (butacas[fila][col] == ocupado) {
+                butacas[fila][col] = libre;
+                System.out.println("Butaca cancelada. \n");
+                butacasVendidas--;
+            } else {
+                System.out.println("No hay butacas reservadas en esa posicion.");
+            }
+            
+        } else{
+            System.out.println("Posicion de butaca fuera del rango");
         }
-
     }
 
     //METODO PARA VER MATRIZ DE LA SALA
@@ -101,10 +107,10 @@ public class Proyeccion {
         System.out.println("\n");
         for (int i = 0; i < x; i++) { //bucle doble para dibujar la matriz de butacas
             for (int j = 0; j < y; j++) {
-                if (butacas[i][j] == 'X') {
+                if (butacas[i][j] == ocupado) {
                     System.out.print("\033[41m" + butacas[i][j] + "\u001B[0m" + "  ");
                     
-                } else if (butacas[i][j] == 'O') {
+                } else if (butacas[i][j] == libre) {
                     System.out.print("\033[0;32m" + butacas[i][j] + "\u001B[0m" + "  ");
                 }
             }
@@ -115,31 +121,42 @@ public class Proyeccion {
         System.out.println("\n");
     }
 
+    //Metodo para cambiar posicion de butacas
     public void modificarEntrada(int fila1, int col1, int fila2, int col2) {
         
         boolean comprueba = true;
         
         do {
-           if (fila1 <= x && col1 <= y && fila2 <= x && col2 <= y) { //comprueba coord. dentro de rango
-            if (butacas[fila1][col1] == 'X' && butacas[fila2][col2] == 'O') {
-                butacas[fila1][col1] = 'O';
-                butacas[fila2][col2] = 'X';
-                
-            } else {
-                System.err.println("Error: butaca ya reservada");
-                comprueba = false;
+            if (fila1 <= x && col1 <= y && fila2 <= x && col2 <= y) { //comprueba coord. dentro de rango
+                if (butacas[fila1][col1] == ocupado && butacas[fila2][col2] == libre) { //comprueba que la nueva butaca no este ya ocupada
+                    butacas[fila1][col1] = libre;
+                    butacas[fila2][col2] = ocupado;
+                }
+                else {
+                    System.err.println("Error: butaca ya reservada. Elige otra por favor");
+                    comprueba = false;
+                }
             }
             
-        } else {
-            System.out.println("Fuera de rango");
-            comprueba = false;
+            else {
+                System.out.println("Fuera de rango");
+                comprueba = false;
             } 
            
-        } while (comprueba == false);
+        }while (comprueba == false);
          
     }
-        
-
+    
+//Metodo para ver los datos de la sala    
+    public void verDato(){
+        System.out.println("Proyeccion del dia " + getDia() +"\t"
+                        + "================================ "
+                        + " Pelicula: " + getTitulo() + "\t"
+                        + " Hora: " + getHora() + "\t"
+                        + " Precio: " + getPrecio() + "\t"
+                        + " Total de entradas vendidas: " + butacasVendidas);
+    }
+    
     //Metodo que permite rellenar la matriz con 'O'
     public char[][] rellenarMatriz(char[][] matriz) {
 
@@ -147,7 +164,7 @@ public class Proyeccion {
 
             for (int j = 0; j < y; j++) {
 
-                matriz[i][j] = 'O';
+                matriz[i][j] = libre;
             }
         }
         return matriz;
