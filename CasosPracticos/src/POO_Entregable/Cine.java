@@ -90,6 +90,7 @@ public class Cine {
     }
 
     public void verSala(int pos) {
+
         proyecciones[pos].verSala();
     }
 
