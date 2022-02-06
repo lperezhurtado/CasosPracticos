@@ -155,10 +155,10 @@ public class Proyeccion {
     
 //Metodo para ver los datos de la sala    
     public void verDato(){
-        System.out.println("Proyeccion del dia " + getDia());                
+        System.out.println("Dia " + getDia());                
         System.out.println("Pelicula: " + getTitulo());
         System.out.println("Hora: " + getHora() + "\t");
-        System.out.println("Precio: " + getPrecio());
+        System.out.println("Precio: " + getPrecio()+ " €");
         System.out.println("Total de entradas vendidas: " + butacasVendidas);
     }
     

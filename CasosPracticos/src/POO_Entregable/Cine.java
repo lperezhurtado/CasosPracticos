@@ -28,10 +28,15 @@ public class Cine {
 
     //metodo que quita una proyeccion y recorrer las proyecciones a la posicion anterior
     public void quitarProyeccion(int posEliminar) {
-        for (int i = posEliminar; i < (cuantos - 1); i++) {
-            proyecciones[i] = proyecciones[i + 1];
+        if(cuantos == 0){
+            System.out.println("No hay proyecciones");
         }
-        cuantos--;
+        else{
+            for (int i = posEliminar; i < (cuantos - 1); i++) {
+                proyecciones[i] = proyecciones[i + 1];
+            }
+            cuantos--;
+        }
     }
 
     public void modificarProyeccion(int posModificar, String titulo, String dia, String hora, double precio) {
@@ -41,7 +46,7 @@ public class Cine {
     }
 
     public boolean venderEntradas(int proyeccion, int fila, int butaca) {
-
+        
         if (proyecciones[proyeccion].venderEntrada(fila, butaca) == true) {
 
             return true;
@@ -61,7 +66,10 @@ public class Cine {
     }
 
     public void verProyecciones() {
-
+        
+        if(cuantos == 0){
+            System.out.println("No hay proyecciones \t");
+        }
         for (int i = 0; i < cuantos; i++) {
             System.out.println("Proyeccion: " + i);
             System.out.println("**************************************** \t");
