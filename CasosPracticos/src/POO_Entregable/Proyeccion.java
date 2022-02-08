@@ -77,6 +77,7 @@ public class Proyeccion {
                 comprueba = false;
             }
   
+        
         } while(comprueba != false);
                 return false;
     }
