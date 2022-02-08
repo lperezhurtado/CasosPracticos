@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="transportesValencia">
+  <ClassDiagramComponents>
+    <Class name="Bus" package="" visibility="public" xPosition="-2.0" yPosition="495.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="matricula" type="String" visibility="private"/>
+        <Field name="capacidad" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Metro" package="" visibility="public" xPosition="372.0" yPosition="521.0">
+      <Fields>
+        <Field name="identificador" type="Stirng" visibility="private"/>
+        <Field name="matricula" type="String" visibility="private"/>
+        <Field name="capacidad" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="lineaBus" package="" visibility="public" xPosition="20.0" yPosition="202.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="recorridoCircular" type="boolean" visibility="private"/>
+        <Field name="paradasB" type="paradaBus[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="pasaPor" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="lineaMetro" package="" visibility="public" xPosition="284.0" yPosition="202.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="tipoLinea" type="Enum" visibility="private"/>
+        <Field name="paradasM" type="paradaMetro[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="paradaBus" package="" visibility="public" xPosition="24.0" yPosition="8.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="inicioLinea" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="pasaLinea" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="paradaMetro" package="" visibility="public" xPosition="284.0" yPosition="8.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="esSubterranea" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="SistemaTransporte" package="" visibility="public" xPosition="182.0" yPosition="413.0">
+      <Fields>
+        <Field name="lineaBuses" type="lineaBus[]" visibility="private"/>
+        <Field name="lineaMetros" type="lineaMetro[]" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="opera en" source="Metro" target="lineaMetro" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="SistemaTransporte" target="lineaBus" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="lineaBus" target="paradaBus" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="opera en" source="Bus" target="lineaBus" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="SistemaTransporte" target="lineaMetro" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="lineaMetro" target="paradaMetro" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
