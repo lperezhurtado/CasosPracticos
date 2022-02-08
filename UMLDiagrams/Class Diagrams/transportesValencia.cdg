@@ -2,7 +2,7 @@
 
 <ClassDiagram name="transportesValencia">
   <ClassDiagramComponents>
-    <Class name="Bus" package="" visibility="public" xPosition="-2.0" yPosition="495.0">
+    <Class name="Bus" package="" visibility="public" xPosition="60.0" yPosition="517.0">
       <Fields>
         <Field name="identificador" type="String" visibility="private"/>
         <Field name="matricula" type="String" visibility="private"/>
@@ -11,7 +11,7 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="Metro" package="" visibility="public" xPosition="372.0" yPosition="521.0">
+    <Class name="Metro" package="" visibility="public" xPosition="218.0" yPosition="517.0">
       <Fields>
         <Field name="identificador" type="Stirng" visibility="private"/>
         <Field name="matricula" type="String" visibility="private"/>
@@ -20,32 +20,24 @@
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="lineaBus" package="" visibility="public" xPosition="20.0" yPosition="202.0">
+    <Class name="lineaBus" package="" visibility="public" xPosition="731.0" yPosition="190.0">
       <Fields>
-        <Field name="identificador" type="String" visibility="private"/>
-        <Field name="nombre" type="String" visibility="private"/>
         <Field name="recorridoCircular" type="boolean" visibility="private"/>
-        <Field name="paradasB" type="paradaBus[]" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods>
         <Method name="pasaPor" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="lineaMetro" package="" visibility="public" xPosition="284.0" yPosition="202.0">
+    <Class name="lineaMetro" package="" visibility="public" xPosition="988.0" yPosition="190.0">
       <Fields>
-        <Field name="identificador" type="String" visibility="private"/>
-        <Field name="nombre" type="String" visibility="private"/>
         <Field name="tipoLinea" type="Enum" visibility="private"/>
-        <Field name="paradasM" type="paradaMetro[]" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="paradaBus" package="" visibility="public" xPosition="24.0" yPosition="8.0">
+    <Class name="paradaBus" package="" visibility="public" xPosition="141.0" yPosition="190.0">
       <Fields>
-        <Field name="identificador" type="String" visibility="private"/>
-        <Field name="nombre" type="String" visibility="private"/>
         <Field name="inicioLinea" type="boolean" visibility="private"/>
       </Fields>
       <Constructors/>
@@ -53,30 +45,41 @@
         <Method name="pasaLinea" returnType="void" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="paradaMetro" package="" visibility="public" xPosition="284.0" yPosition="8.0">
+    <Class name="paradaMetro" package="" visibility="public" xPosition="318.0" yPosition="190.0">
       <Fields>
-        <Field name="identificador" type="String" visibility="private"/>
-        <Field name="nombre" type="String" visibility="private"/>
         <Field name="esSubterranea" type="boolean" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
-    <Class name="SistemaTransporte" package="" visibility="public" xPosition="182.0" yPosition="413.0">
+    <Class name="Linea" package="" visibility="public" xPosition="865.0" yPosition="31.0">
       <Fields>
-        <Field name="lineaBuses" type="lineaBus[]" visibility="private"/>
-        <Field name="lineaMetros" type="lineaMetro[]" visibility="private"/>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Parada" package="" visibility="public" xPosition="242.0" yPosition="31.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Vehiculo" package="" visibility="public" xPosition="506.0" yPosition="386.0">
+      <Fields>
+        <Field name="untitledField" type="Object" visibility="private"/>
       </Fields>
       <Constructors/>
       <Methods/>
     </Class>
   </ClassDiagramComponents>
   <ClassDiagramRelations>
-    <HasRelation name="opera en" source="Metro" target="lineaMetro" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
-    <HasRelation name="tiene" source="SistemaTransporte" target="lineaBus" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
-    <HasRelation name="tiene" source="lineaBus" target="paradaBus" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
-    <HasRelation name="opera en" source="Bus" target="lineaBus" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
-    <HasRelation name="tiene" source="SistemaTransporte" target="lineaMetro" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
-    <HasRelation name="tiene" source="lineaMetro" target="paradaMetro" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <IsRelation name="is" source="paradaMetro" target="Parada"/>
+    <IsRelation name="is" source="lineaBus" target="Linea"/>
+    <IsRelation name="is" source="lineaMetro" target="Linea"/>
+    <IsRelation name="is" source="paradaBus" target="Parada"/>
   </ClassDiagramRelations>
 </ClassDiagram>
