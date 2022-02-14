@@ -34,8 +34,8 @@ public class Contacto {
         this.correo = correo;
     }
     
-    public void imprime(){
-        System.out.println(nombre +" - "+ telefono +" - "+ correo);
+    public String imprime(){
+        return nombre +" - "+ telefono +" - "+ correo;
     }
     
 }
