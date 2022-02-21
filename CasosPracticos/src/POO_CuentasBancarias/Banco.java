@@ -32,7 +32,7 @@ public class Banco {
     //metodo para eliminar cuenta
     public void eliminarCuenta(int pos){
         
-        for (int i = 0; i < (cuantos-1); i++) {
+        for (int i = pos; i < (cuantos-1); i++) {
             cuentas[i] = cuentas[i+1];
         }
         cuantos--;
