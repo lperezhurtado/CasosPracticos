@@ -10,7 +10,7 @@ public class MiniTerminal {
         Scanner lector = new Scanner(System.in);
         String opcion;
         
-        String raiz = "C:";
+        String raiz = "UD8_Ficheros";
         String ruta;
         boolean info = true;
         MiniFileManager fichero = new MiniFileManager(raiz);

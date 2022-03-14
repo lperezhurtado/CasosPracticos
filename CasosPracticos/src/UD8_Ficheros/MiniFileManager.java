@@ -20,30 +20,34 @@ public class MiniFileManager {
     //PWD
     public String carpetaActual(){
         
-        return ruta+fichero.getName();
+        return fichero.getAbsolutePath();
     }
+    
     //CD Dir
     public boolean changeDir(String dir){
-        aux = new File(dir);
         
-        if(aux.exists() && aux.isDirectory()){
-            String r = aux.getAbsolutePath();
-            fichero = new File(r);
+        if(dir.equals("..")){
             
+            fichero = new File(fichero.getParent());
             return true;
         }
         
-        if(dir.equals("..")){
-            String nuevaRuta = fichero.getParent();
-            fichero = new File(nuevaRuta);
+        else if(dir != ".."){
+            aux = new File(fichero.getAbsolutePath()+"/"+dir);
             
+            if(aux.exists()){
+                ruta = aux.getAbsolutePath();
+                fichero = new File(ruta);
+                System.out.println("SE HA CAMBIADO ");
+            
+            }
             return true;
         }
         
         else{
-            
             return false;
         }
+        
     }
     //listas
     public void mostrarLista(boolean info){
@@ -97,7 +101,7 @@ public class MiniFileManager {
     }
     //Crear Directorios
     public boolean crearDir(String dir){
-        aux = new File(dir);
+        aux = new File(aux.getAbsolutePath()+"/"+dir);
         boolean mkDir = aux.mkdir();
         return mkDir;
     }
