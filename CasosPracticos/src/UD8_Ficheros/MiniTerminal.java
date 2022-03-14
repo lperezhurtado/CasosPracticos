@@ -10,14 +10,14 @@ public class MiniTerminal {
         Scanner lector = new Scanner(System.in);
         String opcion;
         
-        String ruta = "C:";
-        String aux;
+        String raiz = "C:";
+        String ruta;
         boolean info = true;
-        MiniFileManager fichero = new MiniFileManager(ruta);
+        MiniFileManager fichero = new MiniFileManager(raiz);
         
         
         do {
-            System.out.print(ruta + fichero.carpetaActual());
+            System.out.print(raiz);
             opcion = lector.nextLine();
             
             if(opcion.equals("pwd")){
@@ -25,8 +25,8 @@ public class MiniTerminal {
             }
             
             else if(opcion.startsWith("cd")){
-                aux = opcion.substring(3);
-                fichero.changeDir(aux);
+                ruta = opcion.substring(3);
+                fichero.changeDir(ruta);
             }
             
             else if(opcion.equals("ls")){

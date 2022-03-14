@@ -19,7 +19,8 @@ public class MiniFileManager {
     }
     //PWD
     public String carpetaActual(){
-        return fichero.getName();
+        
+        return ruta+fichero.getName();
     }
     //CD Dir
     public boolean changeDir(String dir){
