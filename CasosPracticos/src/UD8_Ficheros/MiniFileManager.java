@@ -13,12 +13,12 @@ public class MiniFileManager {
     private File aux;
     
     //Constructor
-    public MiniFileManager(String ruta){
-        this.ruta = ruta;
-        fichero = new File(this.ruta);
+    public MiniFileManager(String raiz){
+        ruta = raiz;
+        fichero = new File(ruta);
     }
     //PWD
-    public String carpetaActual(){
+    public String getPWD(){
         
         return fichero.getAbsolutePath();
     }
@@ -27,13 +27,13 @@ public class MiniFileManager {
     public boolean changeDir(String dir){
         
         if(dir.equals("..")){
-            
-            fichero = new File(fichero.getParent());
+            ruta = fichero.getParent();
+            fichero = new File(ruta);
             return true;
         }
         
-        else if(dir != ".."){
-            aux = new File(fichero.getAbsolutePath()+"/"+dir);
+        else if(!"..".equals(dir)){
+            aux = new File(fichero.getAbsolutePath()+dir);
             
             if(aux.exists()){
                 ruta = aux.getAbsolutePath();
