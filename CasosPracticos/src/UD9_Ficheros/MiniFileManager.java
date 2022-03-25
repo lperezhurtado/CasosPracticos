@@ -1,5 +1,5 @@
 
-package UD8_Ficheros;
+package UD9_Ficheros;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -73,7 +73,7 @@ public class MiniFileManager {
                 System.out.print(dir.get(i).getName());
                 System.out.print("   "+dir.get(i).length()+"   ");
                 System.out.print(fecha = new Date(dir.get(i).lastModified()));
-                System.out.print("\t");
+                System.out.println("\t");
             }
             
             System.out.println("\n");
@@ -82,9 +82,11 @@ public class MiniFileManager {
                 System.out.print(arch.get(i).getName());
                 System.out.print("   "+arch.get(i).length()+"   ");
                 System.out.print(fecha = new Date(arch.get(i).lastModified()));
-                System.out.print("\t");
+                System.out.println("\t");
             }
+            System.out.print("\n");
         }
+        
         
         else if(!info){
             System.out.println("LISTA DE DIRECTORIOS \t");
@@ -92,17 +94,18 @@ public class MiniFileManager {
                 System.out.println(dir.get(i).getName());
             }
             
-            System.out.println("\n");
+            System.out.print("\n");
             System.out.println("LISTA DE ARCHIVOS \t");
             for (int i = 0; i < arch.size(); i++) {
                 System.out.println(arch.get(i).getName());
             }
+            System.out.print("\n");
         }
     }
     //Crear Directorios
     public boolean crearDir(String dir){
-        aux = new File(aux.getAbsolutePath()+"/"+dir);
-        boolean mkDir = aux.mkdir();
+        fichero = new File(fichero.getAbsolutePath()+File.separator+dir);
+        boolean mkDir = fichero.mkdir();
         return mkDir;
     }
     //Borrar

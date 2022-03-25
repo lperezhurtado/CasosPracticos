@@ -1,5 +1,5 @@
 
-package UD8_Ficheros;
+package UD9_Ficheros;
 
 import java.util.Scanner;
 
@@ -10,14 +10,14 @@ public class MiniTerminal {
         Scanner lector = new Scanner(System.in);
         String opcion;
         
-        String raiz = "MiniTerminal.java";
+        String raiz = System.getProperty("user.dir");
         String ruta;
         boolean info = true;
-        MiniFileManager fichero = new MiniFileManager(raiz);
+        MiniFileManager fichero = new MiniFileManager(raiz+": ");
         
         
         do {
-            System.out.print(raiz+":");
+            System.out.print(raiz);
             opcion = lector.nextLine();
             
             if(opcion.equals("pwd")){
@@ -32,6 +32,20 @@ public class MiniTerminal {
             else if(opcion.equals("ls")){
                 info = false;
                 fichero.mostrarLista(info);
+            }
+            
+            else if(opcion.equals("ll")){
+                info = true;
+                fichero.mostrarLista(info);
+            }
+            
+            else if(opcion.startsWith("mkdir ")){
+                ruta = opcion.substring(6);
+                fichero.crearDir(ruta);
+                
+                if(!fichero.crearDir(ruta)){
+                    System.out.println("No se ha podido crear");
+                }
             }
         } while (!opcion.equals("exit"));
     }
