@@ -36,11 +36,11 @@ public class Codigo_Cesar {
             if(direccion.equalsIgnoreCase("adelante")){
                 //bucle que recorre la carta caracter a caracter
                 for (int i = 0; i < texto.length(); i++) {
-                    char letra = texto.charAt(i);
+                    char letra = texto.toUpperCase().charAt(i);
                     //bucle que recorre el String alfabeto y comprueba si letra 
                     //esta dentro del String, si no lo esta, imprime letra
                     for (int j = 0; j < alfabeto.length(); j++) {
-                        if (texto.toUpperCase().charAt(i) == alfabeto.charAt(j)) {
+                        if (texto.toUpperCase().charAt(i) == alfabeto.toUpperCase().charAt(j)) {
 
                             if ((j + clave + 1) > alfabeto.length()) {
                                 int pos = ((j + clave) - alfabeto.length());
